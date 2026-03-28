@@ -1,0 +1,27 @@
+{
+  "name": "pyielink-engine",
+  "version": "0.1.0",
+  "description": "Modular Electron + React + Node + Python desktop engine",
+  "main": "src/electron/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron .",
+    "backend": "node src/backend/server.js",
+    "ui": "vite --config src/ui/vite.config.js",
+    "build:ui": "vite build --config src/ui/vite.config.js",
+    "lint": "echo 'No linter configured yet'"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "uuid": "^11.0.3",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "electron": "^32.1.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^5.4.1"
+  }
+}
