@@ -1,6 +1,6 @@
 {
   "name": "pyielink-engine",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Modular Electron + React + Node + Python desktop engine",
   "main": "src/electron/main.js",
   "type": "module",
