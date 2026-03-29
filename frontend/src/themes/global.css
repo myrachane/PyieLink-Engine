@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600;700&display=swap');
+
+/* ── Dark theme (default) ── */
+:root, [data-theme="dark"] {
+  --bg-root:    #0a0a0b;
+  --bg-base:    #111113;
+  --bg-surface: #18181b;
+  --bg-card:    #1c1c1f;
+  --bg-hover:   #212124;
+  --bg-input:   #131315;
+  --bg-border:  rgba(255,255,255,0.07);
+  --bg-border-h:rgba(255,255,255,0.13);
+
+  --text-primary:   #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted:     #52525b;
+  --text-hint:      #3f3f46;
+
+  --accent:        #6366f1;
+  --accent-hover:  #4f52d9;
+  --accent-subtle: rgba(99,102,241,0.1);
+  --accent-border: rgba(99,102,241,0.3);
+
+  --green:        #22c55e;
+  --green-subtle: rgba(34,197,94,0.08);
+  --yellow:       #eab308;
+  --yellow-subtle:rgba(234,179,8,0.08);
+  --red:          #ef4444;
+  --red-subtle:   rgba(239,68,68,0.08);
+  --blue:         #3b82f6;
+  --blue-subtle:  rgba(59,130,246,0.08);
+  --orange:       #f97316;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow:    0 2px 8px rgba(0,0,0,0.5);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --bg-root:    #f4f4f5;
+  --bg-base:    #ffffff;
+  --bg-surface: #fafafa;
+  --bg-card:    #ffffff;
+  --bg-hover:   #f4f4f5;
+  --bg-input:   #f9f9fa;
+  --bg-border:  rgba(0,0,0,0.08);
+  --bg-border-h:rgba(0,0,0,0.15);
+
+  --text-primary:   #09090b;
+  --text-secondary: #52525b;
+  --text-muted:     #a1a1aa;
+  --text-hint:      #d4d4d8;
+
+  --accent:        #6366f1;
+  --accent-hover:  #4f52d9;
+  --accent-subtle: rgba(99,102,241,0.07);
+  --accent-border: rgba(99,102,241,0.25);
+
+  --green:        #16a34a;
+  --green-subtle: rgba(22,163,74,0.06);
+  --yellow:       #ca8a04;
+  --yellow-subtle:rgba(202,138,4,0.07);
+  --red:          #dc2626;
+  --red-subtle:   rgba(220,38,38,0.07);
+  --blue:         #2563eb;
+  --blue-subtle:  rgba(37,99,235,0.07);
+  --orange:       #ea580c;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow:    0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%; width: 100%;
+  background: var(--bg-root);
+  color: var(--text-primary);
+  font-family: 'Geist', 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-border-h); border-radius: 4px; }
+
+button {
+  cursor: pointer; font-family: 'Geist', system-ui, sans-serif;
+  border: none; outline: none; background: none; color: inherit;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, opacity 0.12s;
+}
+
+input, textarea, select {
+  font-family: 'Geist Mono', monospace; font-size: 12.5px;
+  background: var(--bg-input);
+  border: 1px solid var(--bg-border);
+  color: var(--text-primary);
+  border-radius: 8px; padding: 9px 12px; outline: none; width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+input::placeholder, textarea::placeholder { color: var(--text-hint); }
+select { cursor: pointer; } select option { background: var(--bg-surface); }
+
+/* ── Component primitives ── */
+.btn-primary {
+  padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  background: var(--accent); color: #fff;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-primary:hover { background: var(--accent-hover); }
+
+.btn-ghost {
+  padding: 7px 14px; border-radius: 8px; font-size: 13px; font-weight: 500;
+  background: transparent; color: var(--text-secondary);
+  border: 1px solid var(--bg-border);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-ghost:hover { background: var(--bg-hover); border-color: var(--bg-border-h); color: var(--text-primary); }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: 12px;
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; font-family: 'Geist Mono', monospace;
+}
+.badge-green  { background: var(--green-subtle);  color: var(--green); }
+.badge-yellow { background: var(--yellow-subtle); color: var(--yellow); }
+.badge-red    { background: var(--red-subtle);    color: var(--red); }
+.badge-blue   { background: var(--blue-subtle);   color: var(--blue); }
+.badge-muted  { background: var(--bg-hover);      color: var(--text-muted); }
+.badge-accent { background: var(--accent-subtle); color: var(--accent); }
+
+/* ── Layout ── */
+.topbar {
+  height: 52px; display: flex; align-items: center; padding: 0 24px; gap: 12px;
+  background: var(--bg-base); border-bottom: 1px solid var(--bg-border); flex-shrink: 0;
+}
+
+/* ── Dot-matrix brand name ── */
+.brand-name {
+  font-family: 'Geist Mono', monospace;
+  font-weight: 600; font-size: 15px; letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+.brand-name span { color: var(--accent); }
+
+/* ── Divider ── */
+.divider {
+  height: 1px; background: var(--bg-border); margin: 16px 0;
+}
+
+@keyframes fadeUp   { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes pulse    { 0%,100%{ opacity:1; } 50%{ opacity:0.3; } }
+@keyframes spin     { to { transform:rotate(360deg); } }
+@keyframes slidein  { from { opacity:0; transform:translateX(-6px); } to { opacity:1; transform:translateX(0); } }
